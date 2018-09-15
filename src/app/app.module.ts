@@ -2,6 +2,7 @@ import { NgModule, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { createCustomElement } from '@angular/elements';
+import { ElementZoneStrategyFactory } from 'elements-zone-strategy';
 import { AppComponent, RatingService } from './app.component';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AppComponent, RatingService } from './app.component';
 export class AppModule {
 
   constructor(private injector: Injector) {
-    const customElement = createCustomElement(AppComponent, { injector });
+    const strategyFactory = new ElementZoneStrategyFactory(AppComponent, this.injector);
+    const customElement = createCustomElement(AppComponent, { injector, strategyFactory });
     customElements.define('my-app', customElement);
 
   }
