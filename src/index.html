@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>NgElementForLoop</title>
+  <title>NgElementForLoop - base code</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,7 @@
 </head>
 <body>
   <h3>My Awesome Rating is
-    <span id="rating">4</span>
+    <span id="rating">1</span>
   </h3>
     <button id="ratingBtn">Give max rating</button>
     <p>
@@ -18,26 +18,35 @@
 
     <p>
     <span>
-      Click Max Rating Button, then click 2nd dot of broken row (nothing happens). 
+      Click 1st dot (either row), Click Max Rating Button, then click 2nd dot of broken row (nothing happens). 
       For comparison, click 2nd dot of working row.
     </span>
-      <script>
-        const ratingComponent = document.querySelector('#foo');
-        const ratingText = document.querySelector('#rating');
-        const ratingButton = document.querySelector('#ratingBtn');
-    
-        function foo(data) {
-          ratingText.innerHTML = ratingComponent.rating + 1;
-        }
-    
-        function myClick() {
-          ratingComponent.rating = 4;
-        }
-    
-        ratingComponent.addEventListener('ratingChange', foo );
-    
-        ratingButton.addEventListener('click', myClick );
-      </script>
-  
+    <p>
+        Below is an unconnected instance, just to show if the basic "ngZone from setTimeout()" case works
+    </p>
+    <p>
+      <div id="fromsettimeout"></div>
+    </p>
+    <script>
+      const ratingComponent = document.querySelector('#foo');
+      const ratingText = document.querySelector('#rating');
+      const ratingButton = document.querySelector('#ratingBtn');
+
+      function foo(data) {
+        ratingText.innerHTML = ratingComponent.rating + 1;
+      }
+
+      function myClick() {
+        ratingComponent.rating = 4;
+      }
+
+      ratingComponent.addEventListener('ratingChange', foo);
+
+      ratingButton.addEventListener('click', myClick);
+    </script>
+    <script>
+      const fromSetTimeout = document.querySelector('#fromsettimeout');
+      setTimeout(() => { fromSetTimeout.innerHTML = '<my-app rating="0"><my-app>'; }, 100)
+    </script>
 </body>
 </html>
