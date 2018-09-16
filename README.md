@@ -1,6 +1,9 @@
 # NgElementForLoop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
+This project demonstrates two issues with @angular/elements and potential fixes:
+* [#23841](https://github.com/angular/angular/issues/23841) -- ngFor
+* [#24181](https://github.com/angular/angular/issues/24181) -- SetTimeout()
+
 
 ## Master Branch
 
