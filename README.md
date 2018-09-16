@@ -2,26 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
-## Development server
+## Master Branch
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run demonstrate zone/change detection issues, no fixes. SetTimeout() and ngFor cases both broken.
 
-## Code scaffolding
+## Branch new-zone
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Use zone.js with [PR 1133](https://github.com/angular/zone.js/pull/1133). SetTimeout() works, ngFor still broken.
 
-## Build
+## Branch custom-strategy
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Use [elements-zone-strategy](https://github.com/remackgeek/elements-zone-strategy), which uses a similar approach as 
+[PR 4185](https://github.com/angular/angular/pull/24185). SetTimeout() and ngFor cases both work.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
