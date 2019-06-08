@@ -14,7 +14,7 @@ import {
 @Injectable()
 export class RatingService {
   updateRatings(rating): boolean[] {
-    let result = Array.from({ length: 5 }).map((state, index) => {
+    const result = Array.from({ length: 5 }).map((state, index) => {
       return index < rating + 1;
     });
     return result;
@@ -22,6 +22,7 @@ export class RatingService {
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ]
